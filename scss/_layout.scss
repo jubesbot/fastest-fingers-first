@@ -1,0 +1,253 @@
+body {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: auto;
+
+  @media(max-width: 600px) {
+    width: 100%;
+    height: 337px;
+  }
+
+  @media(min-width: 768px) and (max-width: 992px) {
+    width: 768px;
+    height: 432px;
+  }
+
+  @media(min-width: 992px) and (max-width: 1200px) {
+    width: 992px;
+    height: 558px;
+  }
+
+  @media(min-width: 1200px) {
+    width: 1200px;
+    height: 675px;
+  }
+
+  * {
+    box-sizing: border-box !important;
+  }
+
+  button:hover {
+    background-color: darkgrey;
+    color: white;
+  }
+
+  img {
+    max-width: 100%;
+    height: auto;
+    padding-bottom: 10px;
+  }
+
+  #intro__area, #player__area, #rule__area, #game__area {;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    border: 1px solid black;
+    padding-top: 10px;
+  }
+
+  #intro__area > h1 {
+    color: black;
+    text-align: center;
+  }
+
+  #intro__area > h4 {
+    color: black;
+    text-align: center;
+  }
+
+  #create__player {
+    margin-bottom: 10px;
+  }
+
+  #player__area{
+    padding-top: 0;
+  }
+
+  #p1name, #p2name {
+    display: inline;
+    align-content: space-evenly;
+    margin-right: 5px;
+  }
+
+  #p1name__submit {
+    align-content: space-evenly;
+    margin-right: 40px;
+  }
+
+  .break {
+    margin: 10px
+  }
+
+  #to__rules {
+    flex-wrap: wrap;
+    align-self: flex-end;
+    margin-bottom: 10px;
+  }
+
+  #rule__area {
+    padding-top: 0;
+  }
+
+  #rule__area > h1{
+    margin-top: 10px;
+  }
+
+  #to__game {
+    flex-wrap: wrap;
+    align-self: flex-end;
+    margin-bottom: 10px;
+  }
+
+  #game__area{
+    display: grid;
+    grid-template-areas:
+    "player1 startBtn player2";
+    width: 100%;
+    padding-top: 0;
+  }
+
+  #player1__screen {
+    grid-area: player1;
+    display: grid;
+    grid-template-areas:
+    "score score score"
+    "redC greenC blueC"
+    "hit1 hit2 hit3"
+    "player player player";
+    width: auto;
+    height: auto;
+    flex: auto;
+    border: 1px solid red;
+    gap: 1em;
+    margin: 1em;
+    padding: 10px
+  }
+
+  #score1 {
+    grid-area: score;
+    align-content: center;
+    border-bottom: 2px solid black;
+    padding-bottom: 10px;
+    font-size: 2rem;
+  }
+
+  #player1__name {
+    grid-area: player;
+    border-top: 2px solid black;
+    align-content: center;
+    padding-top: 10px;
+    font-size: 2rem;
+  }
+
+  #red1, #green1, #blue1, #red2, #green2, #blue2 {
+    border: none;
+    width: 100%;
+    height: 100%;
+    align-self: center;
+  }
+
+  #red1 {
+    grid-area: redC;
+    max-width: 100%;
+  }
+
+  #green1 {
+    grid-area: greenC;
+    max-width: 100%;
+  }
+
+  #blue1 {
+    grid-area: blueC;
+    max-width: 100%;
+  }
+
+  #q1 {
+    grid-area: hit1;
+    text-align: center;
+  }
+
+  #w1 {
+    grid-area: hit2;
+    text-align: center;
+  }
+
+  #e1 {
+    grid-area: hit3;
+    text-align: center;
+  }
+
+  #player2__screen {
+    grid-area: player2;
+    display: grid;
+    grid-template-areas:
+    "score score score"
+    "redC greenC blueC"
+    "hit1 hit2 hit3"
+    "player player player";
+    width: auto;
+    height: auto;
+    flex: auto;
+    //align-content: space-around;
+    border: 1px solid forestgreen;
+    gap: 1em;
+    margin: 1em;
+    padding: 10px
+  }
+
+  #score2 {
+    grid-area: score;
+    align-content: center;
+    border-bottom: 2px solid black;
+    padding-bottom: 10px;
+    font-size: 2rem;
+  }
+
+  #player2__name {
+    grid-area: player;
+    border-top: 2px solid black;
+    align-content: center;
+    padding-top: 10px;
+    font-size: 2rem;
+  }
+
+  #red2 {
+    grid-area: redC;
+    max-width: 100%;
+  }
+
+  #green2 {
+    grid-area: greenC;
+    max-width: 100%;
+  }
+
+  #blue2 {
+    grid-area: blueC;
+    max-width: 100%;
+  }
+
+  #left2 {
+    grid-area: hit1;
+    text-align: center;
+  }
+
+  #up2 {
+    grid-area: hit2;
+    text-align: center;
+  }
+
+  #right2 {
+    grid-area: hit3;
+    text-align: center;
+  }
+
+  #start__game {
+    grid-area: startBtn;
+    font-size: 2rem;
+    width: content-box;
+    border: 1px solid darkorange;
+  }
+}
