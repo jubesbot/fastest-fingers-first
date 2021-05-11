@@ -29,8 +29,8 @@ body {
   }
 
   button:hover {
-    background-color: darkgrey;
-    color: white;
+    background-color: lightgrey;
+    color: black;
   }
 
   img {
@@ -47,11 +47,13 @@ body {
     text-align: center;
     border: 1px solid black;
     padding-top: 10px;
+    height: available;
   }
 
   #intro__area > h1 {
     color: black;
     text-align: center;
+    padding: 10px;
   }
 
   #intro__area > h4 {
@@ -168,16 +170,22 @@ body {
   #q1 {
     grid-area: hit1;
     text-align: center;
+    background-color: red;
+    color: white;
   }
 
   #w1 {
     grid-area: hit2;
     text-align: center;
+    background-color: forestgreen;
+    color: white;
   }
 
   #e1 {
     grid-area: hit3;
     text-align: center;
+    background-color: cornflowerblue;
+    color: white;
   }
 
   #player2__screen {
@@ -232,16 +240,22 @@ body {
   #left2 {
     grid-area: hit1;
     text-align: center;
+    background-color: red;
+    color: white;
   }
 
   #up2 {
     grid-area: hit2;
     text-align: center;
+    background-color: forestgreen;
+    color: white;
   }
 
   #right2 {
     grid-area: hit3;
     text-align: center;
+    background-color: cornflowerblue;
+    color: white;
   }
 
   #start__game {

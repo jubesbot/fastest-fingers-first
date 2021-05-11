@@ -32,8 +32,8 @@ body * {
   box-sizing: border-box !important;
 }
 body button:hover {
-  background-color: darkgrey;
-  color: white;
+  background-color: lightgrey;
+  color: black;
 }
 body img {
   max-width: 100%;
@@ -48,10 +48,12 @@ body #intro__area, body #player__area, body #rule__area, body #game__area {
   text-align: center;
   border: 1px solid black;
   padding-top: 10px;
+  height: available;
 }
 body #intro__area > h1 {
   color: black;
   text-align: center;
+  padding: 10px;
 }
 body #intro__area > h4 {
   color: black;
@@ -144,14 +146,20 @@ body #blue1 {
 body #q1 {
   grid-area: hit1;
   text-align: center;
+  background-color: red;
+  color: white;
 }
 body #w1 {
   grid-area: hit2;
   text-align: center;
+  background-color: forestgreen;
+  color: white;
 }
 body #e1 {
   grid-area: hit3;
   text-align: center;
+  background-color: cornflowerblue;
+  color: white;
 }
 body #player2__screen {
   grid-area: player2;
@@ -194,14 +202,20 @@ body #blue2 {
 body #left2 {
   grid-area: hit1;
   text-align: center;
+  background-color: red;
+  color: white;
 }
 body #up2 {
   grid-area: hit2;
   text-align: center;
+  background-color: forestgreen;
+  color: white;
 }
 body #right2 {
   grid-area: hit3;
   text-align: center;
+  background-color: cornflowerblue;
+  color: white;
 }
 body #start__game {
   grid-area: startBtn;
