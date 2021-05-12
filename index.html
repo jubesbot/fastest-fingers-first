@@ -23,10 +23,10 @@
 
 <div id="player__area">
     <img id="player__vs" alt="player_versus" src="https://media.comicbook.com/2020/05/rick-and-morty-season-4-episode-8-vat-of-acid-episode-1221080-1280x0.jpeg"/>
-    <input name="p1name" id="p1name" placeholder="Player 1 Name"/>
-    <button id="p1name__submit" onclick="getInputValues()">Submit</button>
-    <input name="p2name" id="p2name" placeholder="Player 2 Name"/>
-    <button id="p2name__submit" onclick="getInputValues()">Submit</button>
+    <input name="p1name" id="p1name" onkeyup="getInputValues()" placeholder="Player 1 Name"/>
+<!--    <button id="p1name__submit" onclick="getInputValues()">Submit</button>-->
+    <input name="p2name" id="p2name" onkeyup="getInputValues()" placeholder="Player 2 Name"/>
+<!--    <button id="p2name__submit" onclick="getInputValues()">Submit</button>-->
     <div class="break"></div>
     <button id="to__rules">To Rules</button>
 </div>
@@ -36,9 +36,10 @@
 <div id="rule__area">
 <!--    <img id="rule__page" alt="rule_page" src="https://lh3.googleusercontent.com/RdwZl4bNfBtRJpgAMuGGCbLA-giqnjmw0su4PZjAMmhj4KGmaFwuZkXTBEElrsZVc0xcig_tkQ91mT5N0-o14Zb8qCEwCKT98nbVdL5Y24P-Cg31b2yOv288o0u_vZMQWktNPfgUDcqqM2v8i3P0stHASTFqrHpM7hwBGrAh3Hsa_-oRPU61Qi01dRXyEyuU9FfVwiWg41NYyV_86150yFyrPl2xKIQseWq5D0IJYXiCqM50bkuF9KtoQo8_9jDyzf0WjsJaMenHI5fL2bGqFNNezJWM8_frWwTk-u1UKT2Ud9vyjmynPsepKRMydpc6kSORpgO5zQRAZezpRFkxRQkLhjkeGEdHLGZt70r7X0NoBuaX-zQ_KN6-jnwiL3In0hP1yNEqdvdGqsbCAUaQ4ze81dJK2x_x_Xna01RR7A_l1SQwhfe6csaDGbRgJVYmqLHjZ4ZOUJJuGyFfviZ91aT6cNvJpcMifSrRc9pB0YcPQjGyi-1lFcEUutK86k_7kmemwRBbLkDLwZih3VhSkN_xm53_XePLiwq7eo_G7Tvw3GaDmiUShB9or_yktO4YUajUhcO2qIP4hCRdOoDEoc5w-_NLrY4LNzmbjFI9EcnHfz9T39leMhusYfAovj9NePneuU8JaWjh_P5TrjJSAwIShayvl7syv8xOvfhyJ-hs5CfRDWa2r2dMHhiATrJ_rTzJvFUtmDROyjIiby6PeVJLKQ=w772-h767-no?authuser=0"/>-->
     <h1>Rules</h1>
-    <p>Click on "Start Game" to begin.</p>
-    <p>You have 30seconds to match the images to their colours.</p>
-    <p>The player with the most number of correct matches wins!!!</p>
+    <p>CLICK ON "START GAME" TO BEGIN.</p>
+    <p>YOU HAVE 30 SECONDS.</p>
+    <p>MATCH THE MOST IMAGES CORRECTLY TO WIN!</p>
+    <p>NOTE: IF YOU PRESS THE WRONG BUTTON, YOU WILL LOSE A POINT!</p>
 
     <button id="to__game">To Game</button>
 </div>
@@ -48,17 +49,13 @@
 <div id="game__area">
     <div id="player1__screen">
         <div id="score1">POINTS: 0</div>
-        <img id="red1" alt="red_character" data-current-1="false" src="https://auntm.ai/resources/ui/uigacha/featured/gachachaseprize_256x256_redguardian.png"/>
-        <img id="green1" alt="green_character" data-current-1="false" src="https://images.gameinfo.io/pokemon/256/114-00-shiny.png"/>
-        <img id="blue1" alt="blue_character" data-current-1="false" src="https://wearable-api.decentraland.org/v2/collections/release_the_kraken/wearables/kraken_epic_hat/thumbnail"/>
+        <img class="animate__animated animate__headShake" id="red1" alt="red_character" data-current-1="false" src="https://auntm.ai/resources/ui/uigacha/featured/gachachaseprize_256x256_redguardian.png"/>
+        <img class="animate__animated animate__headShake" id="green1" alt="green_character" data-current-1="false" src="https://images.gameinfo.io/pokemon/256/114-00-shiny.png"/>
+        <img class="animate__animated animate__headShake" id="blue1" alt="blue_character" data-current-1="false" src="https://wearable-api.decentraland.org/v2/collections/release_the_kraken/wearables/kraken_epic_hat/thumbnail"/>
         <button id="q1">Q</button>
         <button id="w1">W</button>
         <button id="e1">E</button>
         <div id="player1__name">Player 1</div>
-<!--        <div id="bonus__1">-->
-<!--            <h1>Press "R"</h1>-->
-<!--            <h4>for +3 points!!!</h4>-->
-<!--        </div>-->
     </div>
 
     <div id="countdown__timer">
@@ -67,20 +64,33 @@
 
     <div id="player2__screen">
         <div id="score2">POINTS: 0</div>
-        <img id="red2" alt="red_character" data-current-2="false" src="https://auntm.ai/resources/ui/uigacha/featured/gachachaseprize_256x256_redguardian.png"/>
-        <img id="green2" alt="green_character" data-current-2="false" src="https://images.gameinfo.io/pokemon/256/114-00-shiny.png"/>
-        <img id="blue2" alt="blue_character" data-current-2="false" src="https://wearable-api.decentraland.org/v2/collections/release_the_kraken/wearables/kraken_epic_hat/thumbnail"/>
+            <img class="animate__animated animate__headShake" id="red2" alt="red_character" data-current-2="false" src="https://auntm.ai/resources/ui/uigacha/featured/gachachaseprize_256x256_redguardian.png"/>
+            <img class="animate__animated animate__headShake" id="green2" alt="green_character" data-current-2="false" src="https://images.gameinfo.io/pokemon/256/114-00-shiny.png"/>
+            <img class="animate__animated animate__headShake" id="blue2" alt="blue_character" data-current-2="false" src="https://wearable-api.decentraland.org/v2/collections/release_the_kraken/wearables/kraken_epic_hat/thumbnail"/>
         <button id="left2">&#8592;</button>
         <button id="up2">&#8593;</button>
         <button id="right2">&#8594;</button>
         <div id="player2__name">Player 2</div>
-<!--        <div id="bonus__2">-->
-<!--            <h1>Press "&#8595;"</h1>-->
-<!--            <h4>for +3 points!!!</h4>-->
-<!--        </div>-->
     </div>
 
     <div id="results"></div>
+</div>
+
+<!-- The Modal -->
+<div id="bonus" class="modal" data-current-3="false">
+    <!-- Modal content -->
+    <div class="modal-content">
+        <h1>For +3 points</h1>
+        <h2>Player 1 press "R"!!!</h2>
+        <h2>Player 2 press "&#8595;"!!!</h2>
+    </div>
+</div>
+
+<div id="winner" class="modal" data-current-4="false">
+    <!-- Modal content -->
+    <span class="close">&times;</span>
+    <div id="declare" class="modal-content">
+    </div>
 </div>
 
 <script src="js/main.js"></script>
