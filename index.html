@@ -12,6 +12,18 @@
 <body>
 <!--Introduction Screen-->
 
+<audio id="wrong__audio" controls style="display:none">
+    <source src="./shortbeep.mp3" type="audio/mpeg"> Your browser does not support the audio element.
+</audio>
+
+<audio id="correct__audio" controls style="display:none">
+    <source src="./whack.mp3" type="audio/mpeg"> Your browser does not support the audio element.
+</audio>
+
+<audio id="woohoo__audio" controls style="display:none">
+    <source src="./woohoo.mp3" type="audio/mpeg"> Your browser does not support the audio element.
+</audio>
+
 <div id="intro__area">
     <img id="intro__page" alt="intro_page" src="https://www.arcadeclub.co.uk/cdn/game-library/super-bishi-bashi-championship/screenshots/super-bishi-bashi-championship-1.png"/>
     <h1>FASTEST-FINGERS-FIRST</h1>
@@ -88,11 +100,13 @@
 
 <div id="winner" class="modal" data-current-4="false">
     <!-- Modal content -->
-    <span class="close">&times;</span>
+    <span class="close">&#8635;</span>
     <div id="declare" class="modal-content">
     </div>
+
 </div>
 
 <script src="js/main.js"></script>
+
 </body>
 </html>

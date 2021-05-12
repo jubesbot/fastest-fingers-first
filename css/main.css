@@ -90,7 +90,7 @@ body #intro__area, body #player__area, body #rule__area, body #game__area {
   text-align: center;
   border: 1px solid black;
   padding-top: 10px;
-  height: available;
+  width: 100%;
 }
 body #intro__area > h1 {
   color: black;
@@ -302,8 +302,8 @@ body .modal-content h1 {
   font-size: larger;
 }
 body .close {
-  color: #aaa;
-  float: right;
+  color: black;
+  text-align: center;
   font-size: 28px;
   font-weight: bold;
 }
