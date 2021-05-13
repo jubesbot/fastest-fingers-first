@@ -1,8 +1,11 @@
+@import url("http://fonts.cdnfonts.com/css/barcade");
 body {
   display: flex;
   justify-content: center;
   align-items: center;
   margin: auto;
+  background-color: black;
+  font-family: "Barcade no bar", sans-serif;
   /* The Modal (background) */
   /* Modal Content/Box */
   /* The Close Button */
@@ -91,18 +94,27 @@ body #intro__area, body #player__area, body #rule__area, body #game__area {
   border: 1px solid black;
   padding-top: 10px;
   width: 100%;
+  height: auto;
 }
 body #intro__area > h1 {
-  color: black;
+  color: whitesmoke;
   text-align: center;
   padding: 10px;
+  font-family: "Barcade", sans-serif;
+  margin-top: 0;
+  transform: translate(0, -450%);
 }
 body #intro__area > h4 {
-  color: black;
+  color: whitesmoke;
   text-align: center;
+  font-family: "Barcade no bar", sans-serif;
+  transform: translate(0, -800%);
 }
 body #create__player {
   margin-bottom: 10px;
+  font-family: "Barcade no bar", sans-serif;
+  font-size: 1rem;
+  transform: translate(0, -500%);
 }
 body #player__area {
   padding-top: 0;
@@ -110,12 +122,13 @@ body #player__area {
 }
 body #p1name, body #p2name {
   display: inline;
-  align-content: space-evenly;
-  margin-right: 5px;
+  align-content: space-between;
+  font-family: "Barcade no bar", sans-serif;
+  font-size: 1rem;
+  transform: translate(0, -250%);
 }
-body #p1name__submit {
-  align-content: space-evenly;
-  margin-right: 40px;
+body #p1name {
+  margin-right: 30px;
 }
 body .break {
   margin: 10px;
@@ -124,18 +137,28 @@ body #to__rules {
   flex-wrap: wrap;
   align-self: flex-end;
   margin-bottom: 10px;
+  font-family: "Barcade no bar", sans-serif;
+  font-size: 1rem;
+  transform: translate(0, -150%);
 }
 body #rule__area {
-  padding: 0 10px 0 10px;
-  margin: 10px;
+  color: whitesmoke;
+  text-align: center;
+  padding: 20px;
+  font-family: "Barcade no bar", sans-serif;
+  font-size: 2rem;
 }
 body #rule__area > h1 {
-  margin-top: 10px;
+  margin-top: 20px;
+  font-family: "Barcade", sans-serif;
+  font-size: 3rem;
 }
 body #to__game {
   flex-wrap: wrap;
   align-self: flex-end;
   margin-bottom: 10px;
+  font-family: "Barcade no bar", sans-serif;
+  font-size: 1rem;
 }
 body #game__area {
   display: grid;
@@ -147,10 +170,10 @@ body #player1__screen {
   grid-area: player1;
   display: grid;
   grid-template-areas: "score score score" "redC greenC blueC" "hit1 hit2 hit3" "player player player";
-  width: auto;
-  height: auto;
+  width: 100%;
+  height: min-content;
   flex: auto;
-  border: 1px solid red;
+  border: 1px dashed red;
   gap: 1em;
   margin: 1em;
   padding: 10px;
@@ -161,13 +184,16 @@ body #score1 {
   border-bottom: 2px solid black;
   padding-bottom: 10px;
   font-size: 2rem;
+  color: whitesmoke;
+  font-family: "Barcade", sans-serif;
 }
 body #player1__name {
   grid-area: player;
   border-top: 2px solid black;
   align-content: center;
-  padding-top: 10px;
   font-size: 2rem;
+  color: whitesmoke;
+  font-family: "Barcade", sans-serif;
 }
 body #red1, body #green1, body #blue1, body #red2, body #green2, body #blue2 {
   border: none;
@@ -191,28 +217,34 @@ body #q1 {
   grid-area: hit1;
   text-align: center;
   background-color: red;
+  font-size: 2rem;
   color: white;
+  font-family: "Barcade no bar", sans-serif;
 }
 body #w1 {
   grid-area: hit2;
   text-align: center;
   background-color: forestgreen;
+  font-size: 2rem;
   color: white;
+  font-family: "Barcade no bar", sans-serif;
 }
 body #e1 {
   grid-area: hit3;
   text-align: center;
   background-color: cornflowerblue;
+  font-size: 2rem;
   color: white;
+  font-family: "Barcade no bar", sans-serif;
 }
 body #player2__screen {
   grid-area: player2;
   display: grid;
   grid-template-areas: "score score score" "redC greenC blueC" "hit1 hit2 hit3" "player player player";
-  width: auto;
-  height: auto;
+  width: 100%;
+  height: min-content;
   flex: auto;
-  border: 1px solid forestgreen;
+  border: 1px dashed forestgreen;
   gap: 1em;
   margin: 1em;
   padding: 10px;
@@ -223,13 +255,16 @@ body #score2 {
   border-bottom: 2px solid black;
   padding-bottom: 10px;
   font-size: 2rem;
+  color: whitesmoke;
+  font-family: "Barcade", sans-serif;
 }
 body #player2__name {
   grid-area: player;
   border-top: 2px solid black;
   align-content: center;
-  padding-top: 10px;
   font-size: 2rem;
+  color: whitesmoke;
+  font-family: "Barcade", sans-serif;
 }
 body #red2 {
   grid-area: redC;
@@ -247,33 +282,38 @@ body #left2 {
   grid-area: hit1;
   text-align: center;
   background-color: red;
+  font-size: 2rem;
   color: white;
+  font-family: "Barcade no bar", sans-serif;
 }
 body #up2 {
   grid-area: hit2;
   text-align: center;
   background-color: forestgreen;
+  font-size: 2rem;
   color: white;
+  font-family: "Barcade no bar", sans-serif;
 }
 body #right2 {
   grid-area: hit3;
   text-align: center;
   background-color: cornflowerblue;
+  font-size: 2rem;
   color: white;
+  font-family: "Barcade no bar", sans-serif;
 }
 body #start__game {
   grid-area: startBtn;
   font-size: 2rem;
-  width: content-box;
+  width: 7rem;
   border: 1px solid darkorange;
+  font-family: "Barcade no bar", sans-serif;
 }
 body .modal {
   display: none;
   /* Hidden by default */
   position: fixed;
   /* Stay in place */
-  z-index: 1;
-  /* Sit on top */
   left: 0;
   top: 0;
   width: 100%;
@@ -288,30 +328,30 @@ body .modal {
   /* Black w/ opacity */
 }
 body .modal-content {
-  background-color: #fefefe;
-  margin: 15% auto;
+  background-color: whitesmoke;
+  margin: 5% auto;
   /* 15% from the top and centered */
-  padding: 20px;
-  border: 1px solid #888;
-  width: 80%;
+  padding: 10px;
+  border: 1px dashed seagreen;
+  width: 100%;
   /* Could be more or less, depending on screen size */
   text-align: center;
   box-sizing: content-box;
+  font-size: 3rem;
 }
-body .modal-content h1 {
-  font-size: larger;
+body .modal-content #declare {
+  font-size: 7rem;
 }
 body .close {
-  color: black;
-  text-align: center;
-  font-size: 28px;
-  font-weight: bold;
+  color: whitesmoke;
+  align-self: flex-end;
+  font-size: 7rem;
 }
 body .close:hover,
 body .close:focus {
-  color: black;
-  text-decoration: none;
+  color: whitesmoke;
   cursor: pointer;
+  font-size: 7rem;
 }
 
 /*# sourceMappingURL=main.css.map */

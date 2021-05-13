@@ -7,63 +7,77 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Fastest-Fingers-First</title>
     <link rel="stylesheet" href="css/main.css"/>
+    <link href="http://fonts.cdnfonts.com/css/barcade" rel="stylesheet">
+
 </head>
 
 <body>
 <!--Introduction Screen-->
+<audio id="game__audio" onclick="playmusic()" controls style="display:none">
+    <source src="./audiophiles/always.mp3" type="audio/mpeg"> Your browser does not support the audio element.
+</audio>
+
+<audio id="coin__audio" onclick="playmusic()" controls style="display:none">
+    <source src="./audiophiles/coin.mp3" type="audio/mpeg"> Your browser does not support the audio element.
+</audio>
 
 <audio id="wrong__audio" controls style="display:none">
-    <source src="./shortbeep.mp3" type="audio/mpeg"> Your browser does not support the audio element.
+    <source src="./audiophiles/shortbeep.mp3" type="audio/mpeg"> Your browser does not support the audio element.
 </audio>
 
-<audio id="correct__audio" controls style="display:none">
-    <source src="./whack.mp3" type="audio/mpeg"> Your browser does not support the audio element.
+<audio id="whack__audio" controls style="display:none">
+    <source src="./audiophiles/whack.mp3" type="audio/mpeg"> Your browser does not support the audio element.
 </audio>
 
-<audio id="woohoo__audio" controls style="display:none">
-    <source src="./woohoo.mp3" type="audio/mpeg"> Your browser does not support the audio element.
+<audio id="you__win" controls style="display:none">
+    <source src="./audiophiles/youwin.mp3" type="audio/mpeg"> Your browser does not support the audio element.
 </audio>
+
+<audio id="draw__audio" controls style="display:none">
+    <source src="./audiophiles/gameover.mp3" type="audio/mpeg"> Your browser does not support the audio element.
+</audio>
+
 
 <div id="intro__area">
-    <img id="intro__page" alt="intro_page" src="https://www.arcadeclub.co.uk/cdn/game-library/super-bishi-bashi-championship/screenshots/super-bishi-bashi-championship-1.png"/>
+    <img id="intro__page" alt="intro_page" src="./gifs/tenor.gif"/>
     <h1>FASTEST-FINGERS-FIRST</h1>
-    <h4>A BISHI-BASHI-INSPIRED GAME</h4>
+    <h4>General Assembly Project #1: The Game</h4>
     <button id="create__player">Create Players</button>
 </div>
 
-<!--&lt;!&ndash;Player Name Screen&ndash;&gt;-->
+<!--Player Name Screen-->
 
 <div id="player__area">
-    <img id="player__vs" alt="player_versus" src="https://media.comicbook.com/2020/05/rick-and-morty-season-4-episode-8-vat-of-acid-episode-1221080-1280x0.jpeg"/>
+    <img id="player__vs1" alt="player_versus" src="./gifs/insertcoin.gif"/>
+
+    <div class="name__container">
     <input name="p1name" id="p1name" onkeyup="getInputValues()" placeholder="Player 1 Name"/>
-<!--    <button id="p1name__submit" onclick="getInputValues()">Submit</button>-->
     <input name="p2name" id="p2name" onkeyup="getInputValues()" placeholder="Player 2 Name"/>
-<!--    <button id="p2name__submit" onclick="getInputValues()">Submit</button>-->
-    <div class="break"></div>
+    </div>
     <button id="to__rules">To Rules</button>
 </div>
 
-<!--&lt;!&ndash;&lt;!&ndash;Rules Screen&ndash;&gt;&ndash;&gt;-->
+<!--&lt;!&ndash;Rules Screen&ndash;&gt;-->
 
 <div id="rule__area">
-<!--    <img id="rule__page" alt="rule_page" src="https://lh3.googleusercontent.com/RdwZl4bNfBtRJpgAMuGGCbLA-giqnjmw0su4PZjAMmhj4KGmaFwuZkXTBEElrsZVc0xcig_tkQ91mT5N0-o14Zb8qCEwCKT98nbVdL5Y24P-Cg31b2yOv288o0u_vZMQWktNPfgUDcqqM2v8i3P0stHASTFqrHpM7hwBGrAh3Hsa_-oRPU61Qi01dRXyEyuU9FfVwiWg41NYyV_86150yFyrPl2xKIQseWq5D0IJYXiCqM50bkuF9KtoQo8_9jDyzf0WjsJaMenHI5fL2bGqFNNezJWM8_frWwTk-u1UKT2Ud9vyjmynPsepKRMydpc6kSORpgO5zQRAZezpRFkxRQkLhjkeGEdHLGZt70r7X0NoBuaX-zQ_KN6-jnwiL3In0hP1yNEqdvdGqsbCAUaQ4ze81dJK2x_x_Xna01RR7A_l1SQwhfe6csaDGbRgJVYmqLHjZ4ZOUJJuGyFfviZ91aT6cNvJpcMifSrRc9pB0YcPQjGyi-1lFcEUutK86k_7kmemwRBbLkDLwZih3VhSkN_xm53_XePLiwq7eo_G7Tvw3GaDmiUShB9or_yktO4YUajUhcO2qIP4hCRdOoDEoc5w-_NLrY4LNzmbjFI9EcnHfz9T39leMhusYfAovj9NePneuU8JaWjh_P5TrjJSAwIShayvl7syv8xOvfhyJ-hs5CfRDWa2r2dMHhiATrJ_rTzJvFUtmDROyjIiby6PeVJLKQ=w772-h767-no?authuser=0"/>-->
+    <!--    <img id="rule__page" alt="rule_page" src="https://lh3.googleusercontent.com/RdwZl4bNfBtRJpgAMuGGCbLA-giqnjmw0su4PZjAMmhj4KGmaFwuZkXTBEElrsZVc0xcig_tkQ91mT5N0-o14Zb8qCEwCKT98nbVdL5Y24P-Cg31b2yOv288o0u_vZMQWktNPfgUDcqqM2v8i3P0stHASTFqrHpM7hwBGrAh3Hsa_-oRPU61Qi01dRXyEyuU9FfVwiWg41NYyV_86150yFyrPl2xKIQseWq5D0IJYXiCqM50bkuF9KtoQo8_9jDyzf0WjsJaMenHI5fL2bGqFNNezJWM8_frWwTk-u1UKT2Ud9vyjmynPsepKRMydpc6kSORpgO5zQRAZezpRFkxRQkLhjkeGEdHLGZt70r7X0NoBuaX-zQ_KN6-jnwiL3In0hP1yNEqdvdGqsbCAUaQ4ze81dJK2x_x_Xna01RR7A_l1SQwhfe6csaDGbRgJVYmqLHjZ4ZOUJJuGyFfviZ91aT6cNvJpcMifSrRc9pB0YcPQjGyi-1lFcEUutK86k_7kmemwRBbLkDLwZih3VhSkN_xm53_XePLiwq7eo_G7Tvw3GaDmiUShB9or_yktO4YUajUhcO2qIP4hCRdOoDEoc5w-_NLrY4LNzmbjFI9EcnHfz9T39leMhusYfAovj9NePneuU8JaWjh_P5TrjJSAwIShayvl7syv8xOvfhyJ-hs5CfRDWa2r2dMHhiATrJ_rTzJvFUtmDROyjIiby6PeVJLKQ=w772-h767-no?authuser=0"/>-->
     <h1>Rules</h1>
     <p>CLICK ON "START GAME" TO BEGIN.</p>
     <p>YOU HAVE 30 SECONDS.</p>
-    <p>MATCH THE MOST IMAGES CORRECTLY TO WIN!</p>
-    <p>NOTE: IF YOU PRESS THE WRONG BUTTON, YOU WILL LOSE A POINT!</p>
+    <p>MATCH THE MOST IMAGES CORRECTLY TO WIN.</p>
+    <p>IF YOU PRESS THE WRONG BUTTON, YOU WILL LOSE A POINT.</p>
 
     <button id="to__game">To Game</button>
 </div>
 
-<!--&lt;!&ndash;Game Screen&ndash;&gt;-->
+<!--Game Screen-->
 
 <div id="game__area">
     <div id="player1__screen">
         <div id="score1">POINTS: 0</div>
-        <img class="animate__animated animate__headShake" id="red1" alt="red_character" data-current-1="false" src="https://auntm.ai/resources/ui/uigacha/featured/gachachaseprize_256x256_redguardian.png"/>
-        <img class="animate__animated animate__headShake" id="green1" alt="green_character" data-current-1="false" src="https://images.gameinfo.io/pokemon/256/114-00-shiny.png"/>
-        <img class="animate__animated animate__headShake" id="blue1" alt="blue_character" data-current-1="false" src="https://wearable-api.decentraland.org/v2/collections/release_the_kraken/wearables/kraken_epic_hat/thumbnail"/>
+        <img class="animate__animated" id="red1" alt="red_character" data-current-1="false" src="./gifs/charmander.gif"/>
+        <img class="animate__animated" id="green1" alt="green_character" data-current-1="false" src="./gifs/bulbasaur.gif"/>
+        <img class="animate__animated" id="blue1" alt="blue_character" data-current-1="false" src="./gifs/squirtle.gif"/>
         <button id="q1">Q</button>
         <button id="w1">W</button>
         <button id="e1">E</button>
@@ -76,12 +90,12 @@
 
     <div id="player2__screen">
         <div id="score2">POINTS: 0</div>
-            <img class="animate__animated animate__headShake" id="red2" alt="red_character" data-current-2="false" src="https://auntm.ai/resources/ui/uigacha/featured/gachachaseprize_256x256_redguardian.png"/>
-            <img class="animate__animated animate__headShake" id="green2" alt="green_character" data-current-2="false" src="https://images.gameinfo.io/pokemon/256/114-00-shiny.png"/>
-            <img class="animate__animated animate__headShake" id="blue2" alt="blue_character" data-current-2="false" src="https://wearable-api.decentraland.org/v2/collections/release_the_kraken/wearables/kraken_epic_hat/thumbnail"/>
-        <button id="left2">&#8592;</button>
-        <button id="up2">&#8593;</button>
-        <button id="right2">&#8594;</button>
+        <img class="animate__animated" id="red2" alt="red_character" data-current-2="false" src="./gifs/charmander.gif"/>
+        <img class="animate__animated" id="green2" alt="green_character" data-current-2="false" src="./gifs/bulbasaur.gif"/>
+        <img class="animate__animated" id="blue2" alt="blue_character" data-current-2="false" src="./gifs/squirtle.gif"/>
+        <button id="left2">Left</button>
+        <button id="up2">Up</button>
+        <button id="right2">Right</button>
         <div id="player2__name">Player 2</div>
     </div>
 
@@ -93,14 +107,15 @@
     <!-- Modal content -->
     <div class="modal-content">
         <h1>For +3 points</h1>
-        <h2>Player 1 press "R"!!!</h2>
-        <h2>Player 2 press "&#8595;"!!!</h2>
+        <h2>Player 1 press "R"</h2>
+        <h2>Player 2 press "&#8595;"</h2>
     </div>
 </div>
 
 <div id="winner" class="modal" data-current-4="false">
     <!-- Modal content -->
     <span class="close">&#8635;</span>
+    rematch?
     <div id="declare" class="modal-content">
     </div>
 

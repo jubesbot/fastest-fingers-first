@@ -1,9 +1,18 @@
+let coinSound = document.getElementById('coin__audio')
+coinSound.volume=0.2
+
+let gameSound = document.getElementById('game__audio')
+
+let whackSound= document.getElementById('whack__audio')
+
+let wrongSound = document.getElementById('wrong__audio')
+
 let state = {
     currentScore: [0, 0]
 }
 
 let ready = 5
-let timeLeft = 60
+let timeLeft = 30
 
 // don't display the next pages
 document.querySelector('#intro__area').style.display='block'
@@ -17,6 +26,7 @@ function toCreatePlayers(){
     document.querySelector('#rule__area').style.display='none'
     document.querySelector('#game__area').style.display='none'
     document.querySelector('#player__area').style.display='block'
+    gameSound.play()
 }
 
 function toRules(){
@@ -65,13 +75,13 @@ function startGame() {
             console.log('Pressed Q')
             if (document.getElementById('red1').getAttribute('data-current-1') === 'true') {
                 console.log('Red1!')
-                document.getElementById('correct__audio').play()
+                coinSound.play()
                 document.getElementById('red1').style.visibility = 'hidden'
                 document.getElementById('red1').setAttribute('data-current-1', 'false')
                 state.currentScore[0]++
                 document.getElementById('score1').innerHTML = 'POINTS: ' + state.currentScore[0].toString()
             }else{
-                document.getElementById('wrong__audio').play()
+                wrongSound.play()
                 state.currentScore[0]--
                 document.getElementById('score1').innerHTML = 'POINTS: ' + state.currentScore[0].toString()
             }
@@ -79,13 +89,13 @@ function startGame() {
             console.log('Pressed W')
             if (document.getElementById('green1').getAttribute('data-current-1') === 'true') {
                 console.log('Green1!')
-                document.getElementById('correct__audio').play()
+                coinSound.play()
                 document.getElementById('green1').style.visibility = 'hidden'
                 document.getElementById('green1').setAttribute('data-current-1', 'false')
                 state.currentScore[0]++
                 document.getElementById('score1').innerHTML = 'POINTS: ' + state.currentScore[0].toString()
             }   else{
-                document.getElementById('wrong__audio').play()
+                wrongSound.play()
                 state.currentScore[0]--
                 document.getElementById('score1').innerHTML = 'POINTS: ' + state.currentScore[0].toString()
             }
@@ -93,13 +103,13 @@ function startGame() {
             console.log('Pressed E')
             if (document.getElementById('blue1').getAttribute('data-current-1') === 'true') {
                 console.log('Blue1')
-                document.getElementById('correct__audio').play()
+                coinSound.play()
                 document.getElementById('blue1').style.visibility = 'hidden'
                 document.getElementById('blue1').setAttribute('data-current-1', 'false')
                 state.currentScore[0]++
                 document.getElementById('score1').innerHTML = 'POINTS: ' + state.currentScore[0].toString()
             }   else{
-                document.getElementById('wrong__audio').play()
+                wrongSound.play()
                 state.currentScore[0]--
                 document.getElementById('score1').innerHTML = 'POINTS: ' + state.currentScore[0].toString()
             }
@@ -107,7 +117,6 @@ function startGame() {
             console.log('Pressed R')
             if (document.getElementById('bonus').getAttribute('data-current-3') === 'true'){
                 document.getElementById('winner').setAttribute('data-current-4','true')
-                document.getElementById('woohoo__audio').play()
                 document.getElementById('bonus').style.display = 'none'
                 document.getElementById('score1').innerHTML = 'POINTS: ' + (state.currentScore[0]+=3).toString()
                 declareWinner()
@@ -123,13 +132,13 @@ function startGame() {
             console.log('Pressed Left')
             if (document.getElementById('red2').getAttribute('data-current-2') === 'true') {
                 console.log('Red2!')
-                document.getElementById('correct__audio').play()
+                whackSound.play()
                 document.getElementById("red2").style.visibility = 'hidden'
                 document.getElementById('red2').setAttribute('data-current-2','false')
                 state.currentScore[1]++
                 document.getElementById('score2').innerHTML = 'POINTS: ' + state.currentScore[1].toString()
             }   else{
-                document.getElementById('wrong__audio').play()
+                wrongSound.play()
                 state.currentScore[1]--
                 document.getElementById('score2').innerHTML = 'POINTS: ' + state.currentScore[1].toString()
             }
@@ -138,13 +147,13 @@ function startGame() {
             console.log('Pressed Up')
             if (document.getElementById('green2').getAttribute('data-current-2') === 'true') {
                 console.log('Green2!')
-                document.getElementById('correct__audio').play()
+                whackSound.play()
                 document.getElementById("green2").style.visibility = 'hidden'
                 document.getElementById('green2').setAttribute('data-current-2','false')
                 state.currentScore[1]++
                 document.getElementById('score2').innerHTML = 'POINTS: ' + state.currentScore[1].toString()
             }   else{
-                document.getElementById('wrong__audio').play()
+                wrongSound.play()
                 state.currentScore[1]--
                 document.getElementById('score2').innerHTML = 'POINTS: ' + state.currentScore[1].toString()
             }
@@ -153,13 +162,13 @@ function startGame() {
             console.log('Pressed Right')
             if (document.getElementById('blue2').getAttribute('data-current-2') === 'true') {
                 console.log('Blue2!')
-                document.getElementById('correct__audio').play()
+                whackSound.play()
                 document.getElementById("blue2").style.visibility = 'hidden'
                 document.getElementById('blue2').setAttribute('data-current-2','false')
                 state.currentScore[1]++
                 document.getElementById('score2').innerHTML = 'POINTS: ' + state.currentScore[1].toString()
             }   else{
-                document.getElementById('wrong__audio').play()
+                wrongSound.play()
                 state.currentScore[1]--
                 document.getElementById('score2').innerHTML = 'POINTS: ' + state.currentScore[1].toString()
             }
@@ -167,7 +176,6 @@ function startGame() {
             console.log('Pressed Down')
             if (document.getElementById('bonus').getAttribute('data-current-3') === 'true') {
                 document.getElementById('winner').setAttribute('data-current-4', 'true')
-                document.getElementById('woohoo__audio').play()
                 document.getElementById('bonus').style.display = 'none'
                 document.getElementById('score2').innerHTML = 'POINTS: ' + (state.currentScore[1]+=3).toString()
                 declareWinner()
@@ -190,10 +198,15 @@ function startGame() {
 
 
     let readyID = setInterval(()=> {
+        // 5-second ready countdown
         if (ready === 0) {
             clearInterval(readyID)
             console.log('start')
 
+            // game timer starts after the ready countdown is completed
+            // show the first image
+            // image stays until correct button is pressed
+            // check for correct button
             let timerID = setInterval(()=> {
                 if (timeLeft === -1) {
                     document.querySelector('#start__game').innerHTML = 'Game Over'
@@ -214,20 +227,13 @@ function startGame() {
                         showImage2()
                     }
                 }
-            },500)
+            },1000)
 
         } else {
             document.querySelector('#start__game').innerHTML = `${ready}`
             ready--
         }
     },1000)
-
-    // countdown starts
-    // show the first image
-    // image stays until correct button is pressed
-    // check for correct button
-
-
 }
 
 document.querySelector('#start__game').addEventListener('click',startGame)
@@ -264,17 +270,22 @@ function declareWinner() {
     if (state.currentScore[0] > state.currentScore[1]) {
         if (document.getElementById('p1name').value === ''){
             document.getElementById('declare').innerHTML = 'Player 1 wins'
+            document.getElementById('you__win').play()
         } else {
             document.getElementById('declare').innerHTML = document.getElementById('p1name').value + ' wins!'
+            document.getElementById('you__win').play()
         }
     } else if (state.currentScore[0] < state.currentScore[1]) {
         if (document.getElementById('p2name').value === ''){
             document.getElementById('declare').innerHTML = 'Player 2 wins'
+            document.getElementById('you__win').play()
         } else {
             document.getElementById('declare').innerHTML = document.getElementById('p2name').value + ' wins!'
+            document.getElementById('you__win').play()
         }
     } else {
         document.getElementById('declare').innerHTML = 'It\'s a draw!'
+        document.getElementById('draw__audio').play()
     }
 }
 
@@ -283,180 +294,6 @@ span.onclick = function() {
     modal2.style.display = "none";
     location.reload()
 }
-
-// function generateImg1() {
-//     let randomImgP1 = Math.floor(Math.random() * 3)
-//     console.log(randomImgP1)
-//
-//     switch (randomImgP1) {
-//         case 1:
-//                 document.getElementById("red1").style.visibility = 'visible'
-//                 document.addEventListener('keyup', function (e) {
-//                     if (e.code === 'KeyQ') {
-//                         console.log("Player1 pressed red")
-//                         document.getElementById("red1").style.visibility = 'hidden'
-//                         state.currentScore[0]++
-//                         document.getElementById('score1').innerHTML = 'POINTS: ' + state.currentScore[0].toString()
-//                     }
-//                 })
-//             break;
-
-        // case 2:
-        //         document.getElementById("green1").style.visibility = 'visible'
-        //         document.addEventListener('keyup', function (e) {
-        //             if (e.code === 'KeyW') {
-        //                 console.log("Player1 pressed green")
-        //                 document.getElementById("green1").style.visibility = 'hidden'
-        //                 state.currentScore[0]++
-        //                 document.getElementById('score1').innerHTML = 'POINTS: ' + state.currentScore[0].toString()
-        //             }
-        //         })
-        //     break;
-        //
-        // case 3:
-        //         document.getElementById("blue1").style.visibility = 'visible'
-        //         document.addEventListener('keyup', function (e) {
-        //             if (e.code === 'KeyE') {
-        //                 console.log("Player1 pressed blue")
-        //                 document.getElementById("blue1").style.visibility = 'hidden'
-        //                 state.currentScore[0]++
-        //                 document.getElementById('score1').innerHTML = 'POINTS: ' + state.currentScore[0].toString()
-        //             }
-        //         })
-        //     break;
-//     }
-//     console.log(`Player1 scored ${state.currentScore[0]}`)
-// }
-
-// function generateImg2() {
-//     let randomImgP2 = Math.floor(Math.random() * 3) + 1
-//     console.log(randomImgP2)
-//
-//     switch (randomImgP2) {
-//         case 1:
-//             document.getElementById("red2").style.visibility = 'visible'
-//             document.addEventListener('keyup', function (e) {
-//                 if (e.code === 'ArrowLeft') {
-//                     console.log("Player2 pressed red")
-//                     document.getElementById("red2").style.visibility = 'hidden'
-//                     state.currentScore[1]++
-//                     document.getElementById('score2').innerHTML = 'POINTS: ' + state.currentScore[1].toString()
-//                 }
-//             })
-//             break;
-//
-//         case 2:
-//             document.getElementById("green2").style.visibility = 'visible'
-//             document.addEventListener('keyup', function (e) {
-//                 if (e.code === 'ArrowUp') {
-//                     console.log("Player2 pressed green")
-//                     document.getElementById("green2").style.visibility = 'hidden'
-//                     state.currentScore[1]++
-//                     document.getElementById('score2').innerHTML = 'POINTS: ' + state.currentScore[1].toString()
-//                 }
-//             })
-//             break;
-//
-//         case 3:
-//             document.getElementById("blue2").style.visibility = 'visible'
-//             document.addEventListener('keyup', function (e) {
-//                 if (e.code === 'ArrowRight') {
-//                     console.log("Player2 pressed blue")
-//                     document.getElementById("blue2").style.visibility = 'hidden'
-//                     state.currentScore[1]++
-//                     document.getElementById('score2').innerHTML = 'POINTS: ' + state.currentScore[1].toString()
-//                 }
-//             })
-//             break;
-//     }
-//     console.log(`Player2 scored ${state.currentScore[1]}`)
-// }
-
-// function generateImg1() {
-//     let randomImgP1 = Math.floor(Math.random() * 3) + 1
-//     console.log(randomImgP1)
-//     if (randomImgP1 === 1) {
-//         document.getElementById("red1").style.visibility = 'visible'
-//         // document.querySelector('#red1').style.display = 'flex'
-//         document.addEventListener('keyup', function (e) {
-//             if (e.code === 'KeyQ') {
-//                 console.log("Player1 pressed red")
-//                 document.getElementById("red1").style.visibility = 'hidden'
-//                 state.currentScore[0]++
-//                 document.getElementById('score1').innerHTML = state.currentScore[0].toString()
-//                 generateImg1()
-//             }
-//         })
-//     } else if (randomImgP1 === 2) {
-//         document.getElementById("green1").style.visibility = 'visible'
-//         // document.querySelector('#green1').style.display = 'flex'
-//         document.addEventListener('keyup', function (e) {
-//             if (e.code === 'KeyW') {
-//                 console.log("Player1 pressed green")
-//                 document.getElementById("green1").style.visibility = 'hidden'
-//                 state.currentScore[0]++
-//                 document.getElementById('score1').innerHTML = state.currentScore[0].toString()
-//                 generateImg1()
-//             }
-//         })
-//     } else if (randomImgP1 === 3) {
-//         document.getElementById("blue1").style.visibility = 'visible'
-//         // document.querySelector('#blue1').style.display = 'flex'
-//         document.addEventListener('keyup', function (e) {
-//             if (e.code === 'KeyE') {
-//                 console.log("Player1 pressed blue")
-//                 document.getElementById("blue1").style.visibility = 'hidden'
-//                 state.currentScore[0]++
-//                 document.getElementById('score1').innerHTML = state.currentScore[0].toString()
-//                 generateImg1()
-//             }
-//         })
-//     }
-//     console.log(`Player1 scored ${state.currentScore[0]}`)
-// }
-//
-// function generateImg2() {
-//     let randomImgP2 = Math.floor(Math.random() * 3) + 1
-//     console.log(randomImgP2)
-//     if (randomImgP2 === 1) {
-//         document.getElementById("red2").style.visibility = 'visible'
-//         // document.querySelector('#red2').style.display = 'flex'
-//         document.addEventListener('keyup', function (f) {
-//             if (f.code === 'ArrowLeft') {
-//                 console.log("Player2 pressed red")
-//                 document.getElementById("red2").style.visibility = 'hidden'
-//                 state.currentScore[1]++
-//                 document.getElementById('score2').innerHTML = state.currentScore[1].toString()
-//                 generateImg2()
-//             }
-//         })
-//     } else if (randomImgP2 === 2) {
-//         document.getElementById("green2").style.visibility = 'visible'
-//         // document.querySelector('#green2').style.display = 'flex'
-//         document.addEventListener('keyup', function (f) {
-//             if (f.code === 'ArrowUp') {
-//                 console.log("Player2 pressed green")
-//                 document.getElementById("green2").style.visibility = 'hidden'
-//                 state.currentScore[1]++
-//                 document.getElementById('score2').innerHTML = state.currentScore[1].toString()
-//                 generateImg2()
-//             }
-//         })
-//     } else if (randomImgP2 === 3) {
-//         document.getElementById("blue2").style.visibility = 'visible'
-//         // document.querySelector('#blue2').style.display = 'flex'
-//         document.addEventListener('keyup', function (f) {
-//             if (f.code === 'ArrowRight') {
-//                 console.log("Player2 pressed blue")
-//                 document.getElementById("blue2").style.visibility = 'hidden'
-//                 state.currentScore[1]++
-//                 document.getElementById('score2').innerHTML = state.currentScore[1].toString()
-//                 generateImg2()
-//             }
-//         })
-//     }
-//     console.log(`Player2 scored ${state.currentScore[1]}`)
-// }
 
 
 
